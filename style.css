@@ -1,7 +1,10 @@
 
+/* Main Body */
+
 body {
     margin: 0;
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,8 +15,10 @@ body {
     background-repeat: no-repeat;
 
     font-family: "Pixelify Sans", sans-serif;
+
     overflow: hidden;
 }
+
 
 /* Envelope Screen */
 
@@ -23,6 +28,7 @@ body {
 }
 
 @keyframes pulse {
+
     0% {
         transform: scale(1);
     }
@@ -34,6 +40,7 @@ body {
     100% {
         transform: scale(1);
     }
+
 }
 
 #envelope {
@@ -42,10 +49,12 @@ body {
     cursor: pointer;
 }
 
+
 /* Letter Screen */
 
 #letter-container {
     display: none;
+
     position: fixed;
     inset: 0;
 
@@ -54,18 +63,23 @@ body {
 }
 
 .letter-window {
+
     width: 90vw;
     max-width: 800px;
+
     height: 90vh;
-    max-height: 650px;
+    max-height: 750px;
 
     padding: 20px;
+
     box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
+
     text-align: center;
 
     background-image: url("window.png");
@@ -81,6 +95,7 @@ body {
     transition:
         transform 0.6s ease,
         opacity 0.6s ease;
+
 }
 
 .letter-window.open {
@@ -88,31 +103,42 @@ body {
     opacity: 1;
 }
 
+
+/* Heading */
+
 h1 {
     font-size: 30px;
     margin: 0;
 }
+
 
 /* Cat */
 
 .cat {
     width: 250px;
     margin: 10px 0;
+
     transition: width 0.4s ease;
 }
 
 .letter-window.final .cat {
-    width: 180px;
+    width: 160px;
 }
+
 
 /* Buttons */
 
 .buttons {
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     gap: 30px;
+
     position: relative;
+
 }
 
 .no-wrapper {
@@ -122,76 +148,119 @@ h1 {
 .btn {
     width: 120px;
     height: auto;
+
     display: inline-block;
+
     user-select: none;
 }
 
 .yes-btn {
+
     position: relative;
     z-index: 2;
+
     cursor: pointer;
 
     transform-origin: center center;
+
     transition: transform 0.3s ease;
+
 }
 
 .no-btn {
+
     position: relative;
     z-index: 10;
+
     cursor: pointer;
 
     transition: transform 0.3s ease;
+
 }
+
 
 /* Proposal Date */
 
 .final-text {
+
+    display: none;
+
     font-size: 22px;
     line-height: 1.5;
 
+    text-align: center;
+
     padding: 10px 20px;
 
-    background-color: rgba(255, 240, 240, 0.7);
+    background-color: rgba(255, 240, 240, 0.8);
+
     border-radius: 12px;
+
 }
 
-/* Personal Message */
+
+/* Personalised Message */
 
 #personal-message {
+
+    display: none;
+
     width: 85%;
     max-width: 500px;
 
+    max-height: 35vh;
+
+    overflow-y: auto;
+
     padding: 10px 20px;
+
     margin-top: 10px;
 
     box-sizing: border-box;
 
-    background: rgba(255, 240, 240, 0.8);
+    background: rgba(255, 240, 240, 0.9);
+
     border-radius: 15px;
 
     text-align: center;
 
     animation: fadeIn 1.5s ease;
+
 }
 
 #personal-message h2 {
+
     font-size: 26px;
+
     margin: 5px;
+
 }
 
 #personal-message p {
+
     font-size: 17px;
+
     line-height: 1.5;
+
     white-space: pre-line;
+
     margin: 8px 0;
+
 }
 
 #personal-message h3 {
+
     font-size: 20px;
+
     margin: 5px;
+
 }
 
+
+/* Fade Animation */
+
 @keyframes fadeIn {
+
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -201,16 +270,21 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
+
 
 /* Mobile Responsive */
 
 @media (max-width: 600px) {
 
     .letter-window {
+
         width: 96vw;
         height: 95vh;
+
         padding: 10px;
+
     }
 
     h1 {
@@ -218,7 +292,7 @@ h1 {
     }
 
     .cat {
-        width: 170px;
+        width: 160px;
     }
 
     .btn {
@@ -234,8 +308,13 @@ h1 {
     }
 
     #personal-message {
+
         width: 90%;
+
+        max-height: 38vh;
+
         padding: 8px 12px;
+
     }
 
     #personal-message h2 {
@@ -243,11 +322,15 @@ h1 {
     }
 
     #personal-message p {
+
         font-size: 14px;
+
         line-height: 1.4;
+
     }
 
     #personal-message h3 {
         font-size: 17px;
     }
+
 }
