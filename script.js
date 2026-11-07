@@ -8,19 +8,23 @@ const yesBtn = document.querySelector(".yes-btn");
 
 const title = document.getElementById("letter-title");
 const catImg = document.getElementById("letter-cat");
+
 const buttons = document.getElementById("letter-buttons");
 const finalText = document.getElementById("final-text");
+const personalMessage = document.getElementById("personal-message");
 
 const letterWindow = document.querySelector(".letter-window");
 
 // Open Envelope
 envelope.addEventListener("click", () => {
+
     envelope.style.display = "none";
     letter.style.display = "flex";
 
     setTimeout(() => {
         letterWindow.classList.add("open");
     }, 50);
+
 });
 
 // NO Button Runs Away + YES Button Grows
@@ -42,12 +46,13 @@ noBtn.addEventListener("mouseenter", () => {
     yesScale += 0.2;
 
     yesBtn.style.transform = `scale(${yesScale})`;
+
 });
 
 // YES Button Click
 yesBtn.addEventListener("click", () => {
 
-    title.textContent = "Yippeeee!";
+    title.textContent = "Yippeeee! ❤️";
 
     catImg.src = "cat_dance.gif";
 
@@ -56,4 +61,7 @@ yesBtn.addEventListener("click", () => {
     buttons.style.display = "none";
 
     finalText.style.display = "block";
+
+    personalMessage.style.display = "block";
+
 });
