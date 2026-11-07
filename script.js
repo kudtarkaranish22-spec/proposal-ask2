@@ -1,54 +1,57 @@
+
 // Elements
 const envelope = document.getElementById("envelope-container");
 const letter = document.getElementById("letter-container");
+
 const noBtn = document.querySelector(".no-btn");
-const yesBtn = document.querySelector(".btn[alt='Yes']");
+const yesBtn = document.querySelector(".yes-btn");
 
 const title = document.getElementById("letter-title");
 const catImg = document.getElementById("letter-cat");
 const buttons = document.getElementById("letter-buttons");
 const finalText = document.getElementById("final-text");
 
- // Click Envelope
+const letterWindow = document.querySelector(".letter-window");
 
+// Open Envelope
 envelope.addEventListener("click", () => {
     envelope.style.display = "none";
     letter.style.display = "flex";
- 
-    setTimeout( () => {
-        document.querySelector(".letter-window").classList.add("open");
-    },50);
+
+    setTimeout(() => {
+        letterWindow.classList.add("open");
+    }, 50);
 });
 
- // Logic to make YES btn to grow
+// NO Button Runs Away + YES Button Grows
+let yesScale = 1;
 
- let yesScale = 1;
+noBtn.addEventListener("mouseenter", () => {
 
- yesBtn.style.position = "relative"
- yesBtn.style.transformOrigin = "center center";
- yesBtn.style.transition = "transform 0.3s ease";
+    // Move NO button randomly
+    const distance = 200;
+    const angle = Math.random() * Math.PI * 2;
 
- noBtn.addEventListener("click", () => {
-     yesScale += 2;
+    const moveX = Math.cos(angle) * distance;
+    const moveY = Math.sin(angle) * distance;
 
-     if (yesBtn.style.position !== "fixed") {
-         yesBtn.style.position = "fixed";
-         yesBtn.style.top = "50%";
-         yesBtn.style.left = "50%";
-         yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
-     }else{
-         yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
-     }
- });
+    noBtn.style.transform =
+        `translate(${moveX}px, ${moveY}px)`;
 
-// YES is clicked
+    // Grow YES button
+    yesScale += 0.2;
 
+    yesBtn.style.transform = `scale(${yesScale})`;
+});
+
+// YES Button Click
 yesBtn.addEventListener("click", () => {
+
     title.textContent = "Yippeeee!";
 
     catImg.src = "cat_dance.gif";
 
-    document.querySelector(".letter-window").classList.add("final");
+    letterWindow.classList.add("final");
 
     buttons.style.display = "none";
 
