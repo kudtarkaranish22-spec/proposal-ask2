@@ -1,14 +1,16 @@
 
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
     background-image: url("heart-bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
     font-family: "Pixelify Sans", sans-serif;
     overflow: hidden;
 }
@@ -24,9 +26,11 @@ body {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }
@@ -44,6 +48,7 @@ body {
     display: none;
     position: fixed;
     inset: 0;
+
     justify-content: center;
     align-items: center;
 }
@@ -51,9 +56,10 @@ body {
 .letter-window {
     width: 90vw;
     max-width: 800px;
-    aspect-ratio: 3 / 2;
+    height: 90vh;
+    max-height: 650px;
+
     padding: 20px;
-    padding-top: 180px;
     box-sizing: border-box;
 
     display: flex;
@@ -67,11 +73,14 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 
-    gap: 1px;
+    gap: 5px;
 
     transform: scale(1.2);
     opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease;
 }
 
 .letter-window.open {
@@ -82,10 +91,6 @@ body {
 h1 {
     font-size: 30px;
     margin: 0;
-}
-
-p {
-    font-size: 40px;
 }
 
 /* Cat */
@@ -116,20 +121,16 @@ p {
 
 .btn {
     width: 120px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.yes-btn,
-.no-btn {
-    width: 120px;
     height: auto;
     display: inline-block;
+    user-select: none;
 }
 
 .yes-btn {
     position: relative;
     z-index: 2;
+    cursor: pointer;
+
     transform-origin: center center;
     transition: transform 0.3s ease;
 }
@@ -138,27 +139,78 @@ p {
     position: relative;
     z-index: 10;
     cursor: pointer;
+
     transition: transform 0.3s ease;
 }
 
-/* Final Text */
+/* Proposal Date */
 
 .final-text {
     font-size: 22px;
-    line-height: 1.4;
-    text-align: center;
-    display: inline-block;
+    line-height: 1.5;
+
     padding: 10px 20px;
-    background-color: rgba(255, 240, 240, 0.5);
+
+    background-color: rgba(255, 240, 240, 0.7);
     border-radius: 12px;
 }
 
-/* Mobile */
+/* Personal Message */
+
+#personal-message {
+    width: 85%;
+    max-width: 500px;
+
+    padding: 10px 20px;
+    margin-top: 10px;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 240, 240, 0.8);
+    border-radius: 15px;
+
+    text-align: center;
+
+    animation: fadeIn 1.5s ease;
+}
+
+#personal-message h2 {
+    font-size: 26px;
+    margin: 5px;
+}
+
+#personal-message p {
+    font-size: 17px;
+    line-height: 1.5;
+    white-space: pre-line;
+    margin: 8px 0;
+}
+
+#personal-message h3 {
+    font-size: 20px;
+    margin: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
 
 @media (max-width: 600px) {
+
     .letter-window {
-        width: 95vw;
-        padding-top: 100px;
+        width: 96vw;
+        height: 95vh;
+        padding: 10px;
     }
 
     h1 {
@@ -166,20 +218,36 @@ p {
     }
 
     .cat {
-        width: 180px;
+        width: 170px;
     }
 
-    .btn,
-    .yes-btn,
-    .no-btn {
-        width: 90px;
+    .btn {
+        width: 85px;
     }
 
     .buttons {
         gap: 20px;
     }
 
-    p {
-        font-size: 28px;
+    .final-text {
+        font-size: 17px;
+    }
+
+    #personal-message {
+        width: 90%;
+        padding: 8px 12px;
+    }
+
+    #personal-message h2 {
+        font-size: 21px;
+    }
+
+    #personal-message p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    #personal-message h3 {
+        font-size: 17px;
     }
 }
